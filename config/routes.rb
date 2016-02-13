@@ -3,15 +3,14 @@ Rails.application.routes.draw do
   root 'landing#index'
   # get '/user' => 'user#index' probably won't to use show, no longer using index
   get '/blog' => 'blog#index'
-
   # USER
   get '/signup' => 'users#new'
   resources :users # resource adds all the nessecary HTTP requests for a RESTful service
   # ex. get 'user' and get 'user/:id'
-
-
   # SESSIONS / LOGIN
-  get 'sessions/new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/login' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
